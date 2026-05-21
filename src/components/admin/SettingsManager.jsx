@@ -29,9 +29,9 @@ export default function SettingsManager() {
     if (!file) return
     setUploading(true)
     const name = `logo-${Date.now()}.${file.name.split('.').pop()}`
-    const { data: d, error } = await supabase.storage.from('image_png').upload(name, file, { upsert: true })
+    const { data: d, error } = await supabase.storage.from('menu-images').upload(name, file, { upsert: true })
     if (!error && d) {
-      const { data: u } = supabase.storage.from('image_png').getPublicUrl(d.path)
+      const { data: u } = supabase.storage.from('menu-images').getPublicUrl(d.path)
       set('logo_url', u.publicUrl)
     }
     setUploading(false)
