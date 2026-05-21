@@ -10,7 +10,7 @@ import { UtensilsCrossed } from 'lucide-react'
 export default function MenuPage() {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
-  const [settings, setSettings] = useState({ restaurant_name: 'Güneş Pansiyon' })
+  const [settings, setSettings] = useState({ restaurant_name: 'Jasmin Pansiyon' })
   const [activeCategory, setActiveCategory] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [loading, setLoading] = useState(true)

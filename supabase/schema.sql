@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS products (
 -- Ayarlar (tek satır)
 CREATE TABLE IF NOT EXISTS settings (
   id                UUID  DEFAULT gen_random_uuid() PRIMARY KEY,
-  restaurant_name   TEXT  DEFAULT 'Güneş Pansiyon',
+  restaurant_name   TEXT  DEFAULT 'Jasmin Pansiyon',
   logo_url          TEXT,
   whatsapp_number   TEXT,
   address           TEXT,
@@ -80,7 +80,7 @@ CREATE POLICY "admin_all_settings"   ON settings   FOR ALL USING (auth.role() = 
 -- Başlangıç ayar kaydı
 -- ============================================================
 INSERT INTO settings (restaurant_name, default_language, currency)
-VALUES ('Güneş Pansiyon', 'tr', 'TL')
+VALUES ('Jasmin Pansiyon', 'tr', 'TL')
 ON CONFLICT DO NOTHING;
 
 -- ============================================================
