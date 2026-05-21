@@ -25,9 +25,9 @@ export default function ProductForm({ product, categories, onClose, onSave }) {
     if (!file) return
     setUploading(true)
     const name = `${Date.now()}-${file.name.replace(/[^a-z0-9.]/gi, '_')}`
-    const { data, error: err } = await supabase.storage.from('menu-images').upload(name, file, { upsert: true })
+    const { data, error: err } = await supabase.storage.from('image_png').upload(name, file, { upsert: true })
     if (!err && data) {
-      const { data: u } = supabase.storage.from('menu-images').getPublicUrl(data.path)
+      const { data: u } = supabase.storage.from('image_png').getPublicUrl(data.path)
       set('image_url', u.publicUrl)
     } else {
       setError(`Görsel yüklenemedi: ${err?.message || 'Bilinmeyen hata'}. Supabase SQL Editor'da supabase/storage.sql dosyasını çalıştırın.`)
