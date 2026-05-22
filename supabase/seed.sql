@@ -12,8 +12,7 @@ INSERT INTO categories (name_tr, name_en, name_ru, slug, sort_order, is_active) 
   ('Pizzalar',           'Pizzas',             'Пицца',                   'pizzalar',        5, true),
   ('Makarnalar',         'Pasta',              'Паста',                   'makarnalar',      6, true),
   ('Soğuk İçecekler',   'Cold Drinks',        'Холодные напитки',        'soguk-icecekler', 7, true),
-  ('Sıcak İçecekler',   'Hot Drinks',         'Горячие напитки',         'sicak-icecekler', 8, true),
-  ('Alkollü İçecekler',  'Alcoholic Drinks',   'Алкогольные напитки',     'alkol-icecekler', 9, true)
+  ('Alkollü İçecekler',  'Alcoholic Drinks',   'Алкогольные напитки',     'alkol-icecekler', 8, true)
 ON CONFLICT (slug) DO NOTHING;
 
 -- ============================================================
@@ -201,18 +200,6 @@ INSERT INTO products (category_id, name_tr, name_en, name_ru, description_en, de
 SELECT id, 'Elde Sıkma Portakal Suyu','Fresh Orange Juice', 'Свежий апельсиновый сок','Fresh Orange Juice 0,33 L','Свежевыжатый апельсиновый сок 0,33 л',250,'TL', 13, true FROM categories WHERE slug='soguk-icecekler';
 INSERT INTO products (category_id, name_tr, name_en, name_ru, description_en, description_ru, price, currency, sort_order, is_active)
 SELECT id, 'Ice Tea Şeftali',        'Ice Tea Peach',      'Холодный чай персик',  'Ice Tea Peach 0,33 L', 'Холодный чай персиковый 0,33 л',       120, 'TL', 14, true FROM categories WHERE slug='soguk-icecekler';
-
--- ============================================================
--- SICAK İÇECEKLER
--- ============================================================
-INSERT INTO products (category_id, name_tr, name_en, name_ru, price, currency, sort_order, is_active)
-SELECT id, 'Çay',          'Tea',            'Чай',               0, 'TL', 1, true FROM categories WHERE slug='sicak-icecekler';
-INSERT INTO products (category_id, name_tr, name_en, name_ru, price, currency, sort_order, is_active)
-SELECT id, 'Türk Kahvesi', 'Turkish Coffee', 'Турецкий кофе',     0, 'TL', 2, true FROM categories WHERE slug='sicak-icecekler';
-INSERT INTO products (category_id, name_tr, name_en, name_ru, price, currency, sort_order, is_active)
-SELECT id, 'Nescafe',      'Nescafe',        'Нескафе',           0, 'TL', 3, true FROM categories WHERE slug='sicak-icecekler';
-INSERT INTO products (category_id, name_tr, name_en, name_ru, price, currency, sort_order, is_active)
-SELECT id, 'Filtre Kahve', 'Filter Coffee',  'Кофе зерновой',     0, 'TL', 4, true FROM categories WHERE slug='sicak-icecekler';
 
 -- ============================================================
 -- ALKOLLÜ İÇECEKLER
